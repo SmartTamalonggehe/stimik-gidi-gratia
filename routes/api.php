@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\JenisApi;
+use App\Http\Controllers\API\PersembahanApi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('jenis', [JenisApi::class, 'index'])->name('api.jenis');
+Route::get('persembahan', [PersembahanApi::class, 'index'])->name('api.persembahan');

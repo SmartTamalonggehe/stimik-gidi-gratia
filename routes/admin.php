@@ -13,3 +13,7 @@ Route::get('jenis', function () {
 Route::get('persembahan', function () {
     return view('admin.persembahan.index');
 })->name('admin.persembahan');
+
+Route::get('transaksi/{jenis}', function ($jenis) {
+    return view('admin.transaksi.index', compact('jenis'));
+})->name('admin.transaksi');

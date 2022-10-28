@@ -2277,26 +2277,12 @@ var formData = function formData(data) {
     $("#jenis_id").val(data.jenis_id).trigger("change");
     document.getElementById("nm_persembahan").value = data.nm_persembahan;
   }
-  if (route == "aset_bergerak") {
+  if (route == "transaksi") {
     document.getElementById("id_form").value = data.id;
-    document.getElementById("nama").value = data.nama;
-    document.getElementById("jenis_barang").value = data.jenis_barang;
-    document.getElementById("jenis_id").value = data.jenis_id;
-    document.getElementById("type").value = data.type;
-    document.getElementById("merk").value = data.merk;
-    document.getElementById("jmlh").value = data.jmlh;
-    document.getElementById("ket").value = data.ket;
-  }
-  if (route == "aset_diam") {
-    document.getElementById("id_form").value = data.id;
-    document.getElementById("nama").value = data.nama;
-    document.getElementById("jenis_id").value = data.jenis_id;
-    document.getElementById("ruangan_id").value = data.ruangan_id;
-    // $("#ruangan_id").val(data.ruangan_id).trigger("change.select2");
-    document.getElementById("merk").value = data.merk;
-    document.getElementById("jmlh").value = data.jmlh;
-    document.getElementById("satuan").value = data.satuan;
-    document.getElementById("ket").value = data.ket;
+    $("#persembahan_id").val(data.persembahan_id).trigger("change");
+    document.getElementById("tgl_transaksi").value = data.tgl_transaksi;
+    document.getElementById("uraian").value = data.uraian;
+    document.getElementById("jumlah").value = data.jumlah;
   }
 };
 

@@ -41,7 +41,7 @@ Contact: contact@hencework.com
                     <div class="d-flex">
                         <div class="d-flex flex-wrap justify-content-between flex-1">
                             <div class="mb-lg-0 mb-2 me-8">
-                                <h1 class="pg-title">@yield('judul')</h1>
+                                <h1 class="pg-title text-capitalize">@yield('judul')</h1>
                             </div>
                             <div class="pg-header-action-wrap">
                                 @yield('add-button')

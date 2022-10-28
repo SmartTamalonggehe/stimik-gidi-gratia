@@ -59,11 +59,11 @@
                              <li class="nav-item">
                                  <ul class="nav flex-column">
                                      <li class="nav-item">
-                                         <a class="nav-link" href="chatpopup.html"><span
+                                         <a class="nav-link" href="{{ route('admin.transaksi', 'pemasukan') }}"><span
                                                  class="nav-link-text">Pemasukan</span></a>
                                      </li>
                                      <li class="nav-item">
-                                         <a class="nav-link" href="chatbot.html"><span
+                                         <a class="nav-link" href="{{ route('admin.transaksi', 'pengeluaran') }}"><span
                                                  class="nav-link-text">Pengeluaran</span></a>
                                      </li>
                                  </ul>

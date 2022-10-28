@@ -2054,6 +2054,88 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./resources/js/components/currency.js":
+/*!*********************************************!*\
+  !*** ./resources/js/components/currency.js ***!
+  \*********************************************/
+/***/ (() => {
+
+$("input[data-type='currency']").on({
+  keyup: function keyup() {
+    formatCurrency($(this));
+  },
+  blur: function blur() {
+    formatCurrency($(this), "blur");
+  }
+});
+function formatNumber(n) {
+  // format number 1000000 to 1,234,567
+  return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+function formatCurrency(input, blur) {
+  // appends $ to value, validates decimal side
+  // and puts cursor back in right position.
+
+  // get input value
+  var input_val = input.val();
+
+  // don't validate empty input
+  if (input_val === "") {
+    return;
+  }
+
+  // original length
+  var original_len = input_val.length;
+
+  // initial caret position
+  var caret_pos = input.prop("selectionStart");
+
+  // check for decimal
+  if (input_val.indexOf(",") >= 0) {
+    // get position of first decimal
+    // this prevents multiple decimals from
+    // being entered
+    var decimal_pos = input_val.indexOf(",");
+
+    // split number by decimal point
+    var left_side = input_val.substring(0, decimal_pos);
+    var right_side = input_val.substring(decimal_pos);
+
+    // add commas to left side of number
+    left_side = formatNumber(left_side);
+
+    // validate right side
+    right_side = formatNumber(right_side);
+
+    // On blur make sure 2 numbers after decimal
+    if (blur === "blur") {
+      right_side += "00";
+    }
+
+    // Limit decimal to only 2 digits
+    right_side = right_side.substring(0, 2);
+
+    // join number by .
+    input_val = left_side + "," + right_side;
+  } else {
+    // no decimal entered
+    // add commas to number
+    // remove all non-digits
+    input_val = formatNumber(input_val);
+    input_val = input_val;
+  }
+
+  // send updated string to input
+  input.val(input_val);
+
+  // put caret back in the right position
+  var updated_len = input_val.length;
+  caret_pos = updated_len - original_len + caret_pos;
+  input[0].setSelectionRange(caret_pos, caret_pos);
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/jenis.js":
 /*!******************************************!*\
   !*** ./resources/js/components/jenis.js ***!
@@ -2070,26 +2152,26 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
-var jenis_id = document.getElementById("jenis_id");
+var persembahan_id = document.getElementById("persembahan_id");
 var selectRuangan = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var dataJenis;
+    var dataPersembahan;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            if (!jenis_id) {
+            if (!persembahan_id) {
               _context.next = 7;
               break;
             }
             _context.next = 3;
-            return (0,_getData__WEBPACK_IMPORTED_MODULE_0__.getDataJenis)();
+            return (0,_getData__WEBPACK_IMPORTED_MODULE_0__.getDataPersembahan)();
           case 3:
-            dataJenis = _context.sent;
-            console.log(dataJenis);
-            jenis_id.innerHTML = "<option value=\"\" disabled selected>Pilih Jenis</option>";
-            dataJenis.forEach(function (jenis) {
-              jenis_id.innerHTML += "\n                <option value=\"".concat(jenis.id, "\">").concat(jenis.nm_jenis, "</option>\n            ");
+            dataPersembahan = _context.sent;
+            console.log(dataPersembahan);
+            persembahan_id.innerHTML = "<option value=\"\" disabled selected>Pilih Persembahan</option>";
+            dataPersembahan.forEach(function (persembahan) {
+              persembahan_id.innerHTML += "\n                <option value=\"".concat(persembahan.id, "\">").concat(persembahan.nm_persembahan, "</option>\n            ");
             });
           case 7:
             (0,_select2__WEBPACK_IMPORTED_MODULE_1__["default"])();
@@ -2146,6 +2228,9 @@ if (nav_menu) {
     if (link.href === href) {
       // add class active
       link.parentElement.classList.add("active");
+      var parent = link.parentElement.parentElement.parentElement.parentElement;
+      parent.classList.add("show");
+      parent.parentElement.classList.add("active");
     }
   });
 }
@@ -2161,8 +2246,8 @@ if (nav_menu) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getChart": () => (/* binding */ getChart),
-/* harmony export */   "getDataJenis": () => (/* binding */ getDataJenis)
+/* harmony export */   "getDataJenis": () => (/* binding */ getDataJenis),
+/* harmony export */   "getDataPersembahan": () => (/* binding */ getDataPersembahan)
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
@@ -2200,6 +2285,37 @@ var getDataJenis = /*#__PURE__*/function () {
   }));
   return function getDataJenis() {
     return _ref.apply(this, arguments);
+  };
+}();
+var getDataPersembahan = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+    var res;
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.prev = 0;
+            _context2.next = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_0___default()({
+              method: "GET",
+              url: "/api/persembahan"
+            });
+          case 3:
+            res = _context2.sent;
+            return _context2.abrupt("return", res.data);
+          case 7:
+            _context2.prev = 7;
+            _context2.t0 = _context2["catch"](0);
+            alert("Terjadi kesalahan pada server ".concat(_context2.t0));
+          case 10:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2, null, [[0, 7]]);
+  }));
+  return function getDataPersembahan() {
+    return _ref2.apply(this, arguments);
   };
 }();
 var getChart = function getChart() {
@@ -2500,9 +2616,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_side_bar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/side-bar */ "./resources/js/components/side-bar.js");
 /* harmony import */ var _components_side_bar__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_components_side_bar__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_jenis__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/jenis */ "./resources/js/components/jenis.js");
+/* harmony import */ var _components_currency__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/currency */ "./resources/js/components/currency.js");
+/* harmony import */ var _components_currency__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_currency__WEBPACK_IMPORTED_MODULE_2__);
 
 
 // select
+
+
+// currency
 
 })();
 
