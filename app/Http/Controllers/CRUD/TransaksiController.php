@@ -51,7 +51,9 @@ class TransaksiController extends Controller
      */
     public function index(Request $request)
     {
-        $data = Transaksi::with('persembahan')->where('jenis_transaksi', $request->jenis)->get();
+        $data = Transaksi::with('persembahan')->where('jenis_transaksi', $request->jenis)
+            ->orderBy('tgl_transaksi', 'DESC')
+            ->get();
         return DataTables::of($data)
             ->addIndexColumn()
             ->addColumn(

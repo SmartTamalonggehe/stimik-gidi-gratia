@@ -44,9 +44,6 @@
                 scrollX: true,
                 processing: true,
                 serverSide: true,
-                order: [
-                    [1, 'asc']
-                ],
                 ajax: `/crud/${route}?jenis=${jenis}`,
                 columns: [{
                         data: 'DT_RowIndex',

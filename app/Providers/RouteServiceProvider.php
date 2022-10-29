@@ -54,6 +54,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/crud.php'));
 
             Route::middleware('web')
+                ->prefix('diaken')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/diaken.php'));
+
+            Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
         });
