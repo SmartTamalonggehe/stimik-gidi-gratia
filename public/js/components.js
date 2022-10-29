@@ -2190,6 +2190,30 @@ selectRuangan();
 
 /***/ }),
 
+/***/ "./resources/js/components/logout.js":
+/*!*******************************************!*\
+  !*** ./resources/js/components/logout.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+var btn_logout = document.querySelector("#btn-logout");
+if (btn_logout) {
+  btn_logout.addEventListener("click", function () {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post("/logout").then(function (response) {
+      window.location.href = "/";
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/select2.js":
 /*!********************************************!*\
   !*** ./resources/js/components/select2.js ***!
@@ -2615,9 +2639,11 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_side_bar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/side-bar */ "./resources/js/components/side-bar.js");
 /* harmony import */ var _components_side_bar__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_components_side_bar__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_jenis__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/jenis */ "./resources/js/components/jenis.js");
-/* harmony import */ var _components_currency__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/currency */ "./resources/js/components/currency.js");
-/* harmony import */ var _components_currency__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_currency__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_logout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/logout */ "./resources/js/components/logout.js");
+/* harmony import */ var _components_jenis__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/jenis */ "./resources/js/components/jenis.js");
+/* harmony import */ var _components_currency__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/currency */ "./resources/js/components/currency.js");
+/* harmony import */ var _components_currency__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_currency__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 // select
