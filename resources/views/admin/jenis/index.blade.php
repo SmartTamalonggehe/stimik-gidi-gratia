@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('title', 'Dashboard')
+@section('title', 'Jenis')
 @section('judul', 'Jenis')
 
 @php

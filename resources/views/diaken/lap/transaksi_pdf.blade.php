@@ -96,7 +96,7 @@
                     @php
                         $pemasukan_bulan = $pemasukan + $jumlah_saldo_akhir;
                     @endphp
-                    <td colspan="3" rowspan="2">
+                    <td colspan="3" rowspan="2" style="text-align: center; font-weight: bold">
                         TOTAL
                     </td>
                     <td>
@@ -107,7 +107,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="5">{{ $pemasukan_bulan - $pengeluaran }}</td>
+                    <td colspan="5" style="text-align: center">{{ $pemasukan_bulan - $pengeluaran }}</td>
                 </tr>
 
             </tbody>

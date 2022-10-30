@@ -4,11 +4,8 @@
           <div class="nav-start-wrap flex-fill">
               <!-- Brand -->
               <a class="navbar-brand d-xl-flex d-none flex-shrink-0" href="">
-                  <img class="brand-img img-fluid" src="{{ asset('assets_diaken/dist/img/brand-sm.svg') }}"
-                      alt="brand" />
-                  <img class="brand-img img-fluid" src="{{ asset('assets_diaken/dist/img/Jampack.svg') }}"
-                      alt="brand" />
-              </a>
+                  <img class="brand-img img-fluid" src="{{ asset('images/logo-gidi.png') }}" width="60px"
+                      alt="brand" /> </a>
               <!-- /Brand -->
               <button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle d-xl-none"><span
                       class="icon"><span class="feather-icon"><i data-feather="align-left"></i></span></span></button>

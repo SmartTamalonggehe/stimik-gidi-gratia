@@ -8,4 +8,4 @@ import "./components/jenis";
 import "./components/currency";
 
 // transaksi
-import "./components/transaksi/hitung_sebelumnya";
+// import "./components/transaksi/hitung_sebelumnya";

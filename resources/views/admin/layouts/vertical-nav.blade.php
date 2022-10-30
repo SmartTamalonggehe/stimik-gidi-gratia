@@ -3,8 +3,7 @@
      <div class="menu-header">
          <span>
              <a class="navbar-brand" href="index.html">
-                 <img class="brand-img img-fluid" src="{{ asset('assets_admin/dist/img/brand-sm.svg') }}" alt="brand" />
-                 <img class="brand-img img-fluid" src="{{ asset('assets_admin/dist/img/Jampack.svg') }}" alt="brand" />
+                 <img class="brand-img img-fluid" src="{{ asset('images/logo-gidi.png') }}" width="60px" alt="brand" />
              </a>
              <button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle">
                  <span class="icon">
