@@ -18,4 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('jenis', [JenisApi::class, 'index'])->name('api.jenis');
 Route::get('persembahan', [PersembahanApi::class, 'index'])->name('api.persembahan');
-Route::get('transaksi', [TransaksiApi::class, 'index'])->name('api.transaksi');
+
+Route::prefix('transaksi')->group(function () {
+    Route::get('/', [TransaksiApi::class, 'index'])->name('api.transaksi');
+    Route::get('/date', [TransaksiApi::class, 'date'])->name('api.transaksi.date');
+});

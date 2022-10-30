@@ -6,3 +6,6 @@ import "./components/jenis";
 
 // currency
 import "./components/currency";
+
+// transaksi
+import "./components/transaksi/hitung_sebelumnya";

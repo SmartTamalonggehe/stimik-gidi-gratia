@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\LAP;
 
 use Carbon\Carbon;
 use App\Models\Transaksi;
@@ -8,13 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-class TransaksiApi extends Controller
+class TransaksiLap extends Controller
 {
-    public function index()
-    {
-        $data = Transaksi::all();
-        return response()->json($data);
-    }
     public function date(Request $request)
     {
         $tahun = $request->tahun;
@@ -50,22 +45,23 @@ class TransaksiApi extends Controller
             ->orderBy('persembahan.nm_persembahan')
             ->get();
 
-        $data = Transaksi::with('persembahan')
-            ->orderBy('tgl_transaksi')
+        $data = DB::table('transaksi')
+            ->join('persembahan', 'transaksi.persembahan_id', 'persembahan.id')
             ->whereMonth('tgl_transaksi', $bulan)
             ->whereYear('tgl_transaksi', $tahun)
+            ->orderBy('persembahan.nm_persembahan')
             ->get();
+
         // pisahkan antara pemasukan dan pengeluaran
         // jumlahkan pemasukan
         // jumlahkan pengeluaran
         // hitung saldo terakhir (pemasukan - pengeluaran)
+        // return $data;
 
-        $array = [
+        return view('diaken.lap.transaksi_pdf', [
             'pemasukan_sebelumnya' => $pemasukan_sebelumnya,
             'pengeluaran_sebelumnya' => $pengeluaran_sebelumnya,
-            'data_diminta' => $data,
-        ];
-
-        return response()->json($array);
+            'data' => $data
+        ]);
     }
 }

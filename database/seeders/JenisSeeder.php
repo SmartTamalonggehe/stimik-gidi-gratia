@@ -15,13 +15,18 @@ class JenisSeeder extends Seeder
     public function run()
     {
         Jenis::create([
-            'nm_jenis' => 'Bendahara Kelompok'
+            'id' => 1,
+            'nm_jenis' => 'Bendahara Umum'
         ]);
+
         Jenis::create([
+            'id' => 2,
             'nm_jenis' => 'Bendahara Bidang'
         ]);
+
         Jenis::create([
-            'nm_jenis' => 'Bendahara Umum'
+            'id' => 3,
+            'nm_jenis' => 'Bendahara Kelompok'
         ]);
     }
 }
