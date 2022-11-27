@@ -5,6 +5,7 @@ namespace App\Http\Controllers\LAP;
 use Carbon\Carbon;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
@@ -58,10 +59,17 @@ class TransaksiLap extends Controller
         // hitung saldo terakhir (pemasukan - pengeluaran)
         // return $data;
 
-        return view('diaken.lap.transaksi_pdf', [
+        // return view('diaken.lap.transaksi_pdf', [
+        //     'pemasukan_sebelumnya' => $pemasukan_sebelumnya,
+        //     'pengeluaran_sebelumnya' => $pengeluaran_sebelumnya,
+        //     'data' => $data
+        // ]);
+
+        $pdf = Pdf::loadView('diaken.lap.transaksi_pdf', [
             'pemasukan_sebelumnya' => $pemasukan_sebelumnya,
             'pengeluaran_sebelumnya' => $pengeluaran_sebelumnya,
             'data' => $data
-        ]);
+        ]);;
+        return $pdf->stream("Laporan Keuangan $dateMin.pdf");
     }
 }

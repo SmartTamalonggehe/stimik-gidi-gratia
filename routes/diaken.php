@@ -11,4 +11,4 @@ Route::get('laporan', function () {
     return view('diaken.lap.index');
 })->name('diaken.laporan');
 
-Route::get('/laporan/pdf/transaksi', [TransaksiLap::class, 'date'])->name('lap.transaksi.pdf.date');
+Route::get('laporan/pdf/transaksi', [TransaksiLap::class, 'date'])->name('lap.transaksi.pdf.date');

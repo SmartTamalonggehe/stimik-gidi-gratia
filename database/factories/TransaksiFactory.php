@@ -20,7 +20,7 @@ class TransaksiFactory extends Factory
             'tgl_transaksi' => $this->faker->dateTimeBetween('-3 month', 'now'),
             'uraian' => $this->faker->sentence(),
             'jenis_transaksi' => $this->faker->randomElement(['pemasukan', 'pengeluaran']),
-            'jumlah' => $this->faker->numberBetween(9999, 9999999),
+            'jumlah' => $this->faker->numberBetween(9999, 999999),
         ];
     }
 }

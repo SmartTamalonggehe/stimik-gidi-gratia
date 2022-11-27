@@ -8,4 +8,5 @@ import "./components/jenis";
 import "./components/currency";
 
 // transaksi
+import "./components/transaksi/cetakPdf";
 // import "./components/transaksi/hitung_sebelumnya";

@@ -15,7 +15,7 @@
                 <div class="col-12 border-bottom">
                     <div class="row ps-4 py-4">
                         <div class="col-12 col-md-4">
-                            <select name="" id="" class="form-control">
+                            <select name="" id="pilih-bulan" class="form-control">
                                 <option value="">Pilih Bulan</option>
                                 <option value=1>Januari</option>
                                 <option value=2>Februari</option>
@@ -32,7 +32,7 @@
                             </select>
                         </div>
                         <div class="col-12 col-md-4">
-                            <select name="" id="" class="form-control">
+                            <select name="" id="pilih-tahun" class="form-control">
                                 <option value="">Pilih Tahun</option>
                                 @for ($i = $year_now; $i >= 2020; $i--)
                                     <option value={{ $i }}>{{ $i }}</option>
@@ -40,7 +40,7 @@
                             </select>
                         </div>
                         <div class="col-12 col-md-4">
-                            <button class="btn btn-primary">Cetak</button>
+                            <button id="btn-cetak" class="btn btn-primary">Cetak</button>
                         </div>
                     </div>
                 </div>

@@ -21,10 +21,20 @@
             padding: 5px;
             border: 1px solid black
         }
+
+        .text-center {
+            text-align: center
+        }
     </style>
 </head>
 
 <body>
+    @if ($data->isEmpty())
+        <h1 class="text-center">Mohon maaf tidak ada data pada Bulan dan Tahun yang dipilih</h1>
+    @else
+        <h3>LAPORAN KEUANGAN
+            JEMAAT GIDI GRATIA WAENA</h3>
+    @endif
     @foreach ($data->keyBy('persembahan_id') as $key => $item)
         {{-- hitung saldo terakhir --}}
         @php
@@ -58,7 +68,7 @@
                 <tr>
                     <td></td>
                     <td colspan="2">Saldo Terakhir</td>
-                    <td colspan="2">{{ $jumlah_saldo_akhir }}</td>
+                    <td colspan="2">@rupiah($jumlah_saldo_akhir)</td>
                 </tr>
                 @php
                     $no = 0;
@@ -79,7 +89,7 @@
                                 @php
                                     $pemasukan += $row->jumlah;
                                 @endphp
-                                <td>{{ $row->jumlah }}</td>
+                                <td>@rupiah($row->jumlah)</td>
                                 <td>-</td>
                             @endif
                             @if ($row->jenis_transaksi == 'pengeluaran')
@@ -87,7 +97,7 @@
                                     $pengeluaran += $row->jumlah;
                                 @endphp
                                 <td>-</td>
-                                <td>{{ $row->jumlah }}</td>
+                                <td>@rupiah($row->jumlah)</td>
                             @endif
                         </tr>
                     @endif
@@ -100,14 +110,14 @@
                         TOTAL
                     </td>
                     <td>
-                        {{ $pemasukan_bulan }}
+                        @rupiah($pemasukan_bulan)
                     </td>
                     <td>
-                        {{ $pengeluaran }}
+                        @rupiah($pengeluaran)
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="5" style="text-align: center">{{ $pemasukan_bulan - $pengeluaran }}</td>
+                    <td colspan="5" style="text-align: center">@rupiah($pemasukan_bulan - $pengeluaran)</td>
                 </tr>
 
             </tbody>
