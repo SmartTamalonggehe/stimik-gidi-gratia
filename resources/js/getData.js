@@ -23,14 +23,14 @@ const getDataPersembahan = async () => {
     }
 };
 
-const getDataTransaksi = async () => {
+const getDataTransaksi = async ({ tahun, bulan }) => {
     try {
         const res = await axios({
             method: "GET",
             url: `/api/transaksi/date`,
             params: {
-                tahun: 2022,
-                bulan: 9,
+                tahun,
+                bulan,
             },
         });
         return res.data;

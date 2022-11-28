@@ -32,8 +32,8 @@
     @if ($data->isEmpty())
         <h1 class="text-center">Mohon maaf tidak ada data pada Bulan dan Tahun yang dipilih</h1>
     @else
-        <h3>LAPORAN KEUANGAN
-            JEMAAT GIDI GRATIA WAENA</h3>
+        <h3>LAPORAN KEUANGAN</h3>
+        <h3>JEMAAT GIDI GRATIA WAENA</h3>
     @endif
     @foreach ($data->keyBy('persembahan_id') as $key => $item)
         {{-- hitung saldo terakhir --}}

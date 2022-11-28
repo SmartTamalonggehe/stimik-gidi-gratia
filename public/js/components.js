@@ -2379,38 +2379,39 @@ var getDataPersembahan = /*#__PURE__*/function () {
   };
 }();
 var getDataTransaksi = /*#__PURE__*/function () {
-  var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-    var res;
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(_ref3) {
+    var tahun, bulan, res;
     return _regeneratorRuntime().wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            _context3.prev = 0;
-            _context3.next = 3;
+            tahun = _ref3.tahun, bulan = _ref3.bulan;
+            _context3.prev = 1;
+            _context3.next = 4;
             return axios__WEBPACK_IMPORTED_MODULE_0___default()({
               method: "GET",
               url: "/api/transaksi/date",
               params: {
-                tahun: 2022,
-                bulan: 9
+                tahun: tahun,
+                bulan: bulan
               }
             });
-          case 3:
+          case 4:
             res = _context3.sent;
             return _context3.abrupt("return", res.data);
-          case 7:
-            _context3.prev = 7;
-            _context3.t0 = _context3["catch"](0);
+          case 8:
+            _context3.prev = 8;
+            _context3.t0 = _context3["catch"](1);
             alert("Terjadi kesalahan pada server ".concat(_context3.t0));
-          case 10:
+          case 11:
           case "end":
             return _context3.stop();
         }
       }
-    }, _callee3, null, [[0, 7]]);
+    }, _callee3, null, [[1, 8]]);
   }));
-  return function getDataTransaksi() {
-    return _ref3.apply(this, arguments);
+  return function getDataTransaksi(_x) {
+    return _ref4.apply(this, arguments);
   };
 }();
 

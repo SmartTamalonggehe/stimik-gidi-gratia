@@ -22,7 +22,7 @@
         "tailwindcss": "^3.1.0"
     },
     "dependencies": {
-        "apexcharts": "^3.36.0",
+        "apexcharts": "^3.36.3",
         "datatables.net-dt": "^1.12.1",
         "jquery": "^3.6.1",
         "lightbox2": "^2.11.3",
