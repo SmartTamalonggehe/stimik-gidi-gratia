@@ -2114,6 +2114,7 @@ var Transaksi = /*#__PURE__*/function () {
                   return obj[key];
                 }).join("-");
               });
+              console.log("group", groups);
               return _.map(groups, function (g) {
                 return _objectSpread(_objectSpread({}, g[0]), {}, {
                   total: g.map(function (bill) {
@@ -2134,7 +2135,7 @@ var Transaksi = /*#__PURE__*/function () {
             _yield$getDataTransak = _context.sent;
             data_diminta = _yield$getDataTransak.data_diminta;
             dataGroup = addItemSum(data_diminta, ["persembahan_id"]);
-            console.log(dataGroup);
+            console.log("full", dataGroup);
             categories = [];
             pemasukan = [];
             pengeluaran = [];

@@ -12,6 +12,7 @@ const Transaksi = async ({ tahun, bulan }) => {
         const groups = _.groupBy(data_diminta, (obj) => {
             return groupByKeys.map((key) => obj[key]).join("-");
         });
+        console.log("group", groups);
 
         return _.map(groups, (g) => ({
             ...g[0],
@@ -22,7 +23,7 @@ const Transaksi = async ({ tahun, bulan }) => {
     }
 
     const dataGroup = addItemSum(data_diminta, ["persembahan_id"]);
-    console.log(dataGroup);
+    console.log("full", dataGroup);
 
     const categories = [];
     const pemasukan = [];

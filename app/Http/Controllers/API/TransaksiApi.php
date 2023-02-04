@@ -20,15 +20,20 @@ class TransaksiApi extends Controller
         $tahun = $request->tahun;
         $bulan = $request->bulan;
 
+        $dateMin = "";
+        $dateMax = "";
+
         // mencari saldo terakhir ?
         // cari minimal tahun dan minimal bulan
         $date = Transaksi::orderBy('tgl_transaksi', 'asc')->first();
-        $minTahun = Carbon::parse($date->tgl_transaksi)->format('Y');
-        $minBulan = Carbon::parse($date->tgl_transaksi)->format('m');
-        $minBulan -= 1;
+        if ($date) {
+            $minTahun = Carbon::parse($date->tgl_transaksi)->format('Y');
+            $minBulan = Carbon::parse($date->tgl_transaksi)->format('m');
+            $minBulan -= 1;
 
-        $dateMin = Carbon::create($minTahun, $minBulan)->startOfMonth()->format('Y-m-d');
-        $dateMax = Carbon::create($tahun, $bulan - 1)->lastOfMonth()->format('Y-m-d');
+            $dateMin = Carbon::create($minTahun, $minBulan)->startOfMonth()->format('Y-m-d');
+            $dateMax = Carbon::create($tahun, $bulan - 1)->lastOfMonth()->format('Y-m-d');
+        }
 
         // parameter dari tahun req ke tahun minimal dan parameter dari bulan req dan bulan minimal
         // hitung pemasukan sebelumnya
