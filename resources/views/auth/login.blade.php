@@ -79,6 +79,12 @@ Contact: contact@hencework.com
                                                     </div>
                                                     <button type="submit"
                                                         class="btn btn-primary btn-uppercase btn-block">Login</button>
+
+                                                    <div class="col-12 mt-4">
+                                                        <p class="text-center"><a href="/"
+                                                                class="">Kembali</a></p>
+
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
