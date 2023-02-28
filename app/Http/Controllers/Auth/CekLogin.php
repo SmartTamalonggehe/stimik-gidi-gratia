@@ -14,10 +14,10 @@ class CekLogin extends Controller
             if (auth()->user()->roles->first()->name == 'Admin') {
                 return redirect()->route('admin');
             }
-            // if role is diaken, redirect to dashboard
-            elseif (auth()->user()->roles->first()->name == 'Diaken') {
-                return redirect()->route('diaken');
-            }
+            // // if role is diaken, redirect to dashboard
+            // elseif (auth()->user()->roles->first()->name == 'Diaken') {
+            //     return redirect()->route('diaken');
+            // }
         }
         // logout user if role is not found
         auth()->logout();
