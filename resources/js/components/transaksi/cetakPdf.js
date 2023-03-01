@@ -21,7 +21,7 @@ if (btn_cetak) {
             console.log("cetak");
             window
                 .open(
-                    `/diaken/laporan/pdf/transaksi?bulan=${bulan}&tahun=${tahun}`,
+                    `/laporan/pdf/transaksi?bulan=${bulan}&tahun=${tahun}`,
                     "_blank"
                 )
                 .focus();

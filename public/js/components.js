@@ -2289,7 +2289,7 @@ if (btn_cetak) {
       _my_crud_tools__WEBPACK_IMPORTED_MODULE_0__.toastr.error("Tahun harus dipilih", "Pilh Tahun");
     } else {
       console.log("cetak");
-      window.open("/diaken/laporan/pdf/transaksi?bulan=".concat(bulan, "&tahun=").concat(tahun), "_blank").focus();
+      window.open("/laporan/pdf/transaksi?bulan=".concat(bulan, "&tahun=").concat(tahun), "_blank").focus();
     }
   });
 }
