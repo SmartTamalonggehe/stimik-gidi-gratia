@@ -50,11 +50,11 @@
                       <div class="menu-content-wrap" id="sidebar">
                           <div class="menu-group">
                               <ul class="navbar-nav flex-column">
-                                  {{-- <li class="nav-item">
+                                  <li class="nav-item">
                                       <a class="nav-link" href="{{ route('diaken') }}">
                                           <span class="nav-link-text">Dashboard</span>
                                       </a>
-                                  </li> --}}
+                                  </li>
                                   <li class="nav-item">
                                       <a class="nav-link" href="{{ route('diaken.laporan') }}">
                                           <span class="nav-link-text">Laporan Keuangan</span>
