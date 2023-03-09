@@ -21,8 +21,8 @@
                          <div class="col-12">
                              <label for="jenis_id">Jenis</label>
                              <div class="mb-1">
-                                 <select name="jenis_id" id="persembahan_id"
-                                     class="select-basic form-select selectReset" required>
+                                 <select name="jenis_id" id="jenis_id" class="select-basic form-select selectReset"
+                                     required>
 
                                  </select>
                              </div>

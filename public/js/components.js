@@ -2186,7 +2186,42 @@ var selectRuangan = /*#__PURE__*/function () {
     return _ref.apply(this, arguments);
   };
 }();
+var jenis_id = document.getElementById("jenis_id");
+var selectJenis = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+    var dataJenis;
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            if (!jenis_id) {
+              _context2.next = 7;
+              break;
+            }
+            _context2.next = 3;
+            return (0,_getData__WEBPACK_IMPORTED_MODULE_0__.getDataJenis)();
+          case 3:
+            dataJenis = _context2.sent;
+            console.log(dataJenis);
+            jenis_id.innerHTML = "<option value=\"\" disabled selected>Pilih Jenis</option>";
+            dataJenis.forEach(function (jenis) {
+              jenis_id.innerHTML += "\n                <option value=\"".concat(jenis.id, "\">").concat(jenis.nm_jenis, "</option>\n            ");
+            });
+          case 7:
+            (0,_select2__WEBPACK_IMPORTED_MODULE_1__["default"])();
+          case 8:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+  return function selectJenis() {
+    return _ref2.apply(this, arguments);
+  };
+}();
 selectRuangan();
+selectJenis();
 
 /***/ }),
 
